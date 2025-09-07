@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; Data, Science, and Design</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installations and Introduction to your Terminal" href="intro_terminal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Data, Science, and Design - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Data, Science, and Design - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_terminal.html">Installations and Introduction to your Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_fundamentals_one.html">Python Fundamentals 1</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jfkoehler/dad_25" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jfkoehler/dad_25/issues/new?title=Issue%20on%20page%20%2Fsyllabus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/syllabus.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><img alt="" src="data:image/png;base64,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" /></p>
+<p>__________________________________</p>
+<p><strong>Eugene Lang College</strong><br />
+<strong>DATA AND DESIGN WITH PYTHON</strong><br />
+<strong>LMTH 2080; CRN 7800</strong><br />
+<strong>FALL 2025</strong><br />
+<strong>6 EAST 16TH ST ROOM L106</strong></p>
+<p>JACOB KOEHLER	<br />
+<a class="reference external" href="mailto:koehlerj&#37;&#52;&#48;newschool&#46;edu">koehlerj<span>&#64;</span>newschool<span>&#46;</span>edu</a><br />
+OFFICE HOURS BY APPOINTMENT</p>
+<p><strong>Course Description:</strong>   This course aims to introduce students to the Python computing language. Students will write basic programs with Python, investigate the use of Python to perform data analysis (including machine learning and artificial intelligence), use Python to access and structure information from the web, and also use Python to build and deploy web based applications. The course will teach these skills through three projects 1) Writing a Class to interact with csv files 2) an exploratory data project and data visualization, and 3) design and deployment of a personal web application with a predictive model. No prior experience with the Python computing language is required, however students are expected to own a laptop computer, or check one out from the University and bring it with them to every class. This course does not satisfy the second math requirement for the IS major but can count towards satisfying the IS elective requirement.</p>
+<p><strong>Learning Outcomes</strong><br />
+By the successful completion of this course, students will be able to:</p>
+<ol class="arabic simple">
+<li><p>Understand and use data types, variables, and collections in Python</p></li>
+<li><p>Understand and use conditionals and loops to solve problems in Python</p></li>
+<li><p>Use functions and classes to solve problems in Python</p></li>
+<li><p>Use pandas to interact with data in Python</p></li>
+<li><p>Use matplotlib and seaborn to visualize data</p></li>
+<li><p>Use python to access data from API’s</p></li>
+<li><p>Use Flask to build basic web applications</p></li>
+<li><p>Use Flask to build interactive web applications</p></li>
+<li><p>Use CSS and Javascript to style Flask Applications</p></li>
+<li><p>Implement basic regression and classification models using scikitlearn</p></li>
+<li><p>Implement neural network models using pytorch</p></li>
+<li><p>Deploy machine learning models using Flask</p></li>
+</ol>
+<p><strong>Assessable Assignments</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>1/27/2025</p></th>
+<th class="head text-left"><p>Assignment I</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>2/3/2025</p></td>
+<td class="text-left"><p>Assignment II</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2/10/2025</p></td>
+<td class="text-left"><p>Assignment III</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>2/24/2025</p></td>
+<td class="text-left"><p>PROJECT I</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>3/3/2025</p></td>
+<td class="text-left"><p>Assignment IV</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3/17/2025</p></td>
+<td class="text-left"><p>Assignment VI</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>3/24/2025</p></td>
+<td class="text-left"><p>Assignment VII</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3/31/2025</p></td>
+<td class="text-left"><p>PROJECT II</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4/7/2025</p></td>
+<td class="text-left"><p>Assignment IX</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>4/14/2025</p></td>
+<td class="text-left"><p>Assignment X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4/21/2025</p></td>
+<td class="text-left"><p>Assignment XI</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>4/28/2025</p></td>
+<td class="text-left"><p>Assignment XII</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>5/5/2025</p></td>
+<td class="text-left"><p>PROJECT III</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Final Grade Calculation</strong><br />
+Active Participation /Attendance		30%<br />
+Homework				40%<br />
+PROJECTS				30%<br />
+Etc.					<br />
+TOTAL			        		100%</p>
+<p><strong>Readings, Materials</strong>, <strong>Expenses</strong></p>
+<ul class="simple">
+<li><p>Official Python Documentation</p></li>
+<li><p>Supplementary readings added in canvas</p></li>
+</ul>
+<p><strong>Community Agreements</strong></p>
+<p>Community agreements are documents about classroom expectations for discussion and behavior that are created collaboratively between students and instructors. The agreement helps to build a foundation for an inclusive learning environment through the process of co-creation and transparency about expectations and boundaries. Following best practice, will build a community agreement early in the semester and revisit it as needed.</p>
+<p><strong>Course Outline</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Week/Class/Session</p></th>
+<th class="head"><p></p></th>
+<th class="head text-left"><p>Topic or Activity</p></th>
+<th class="head text-left"><p>Assignment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Week 1</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Introduction, Review Syllabus <a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSegiAGxgS3lDShq2aEBzDmTZqnOniG9J2Ob-8QR3ra9y94CgQ/viewform?usp=sf_link">Needs Assessment</a> Introduction to Data Types and Collections String Methods and f-strings</p></td>
+<td class="text-left"><p>Assignment: Assignment 1 Due: 9/15</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week 2</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Introduction to Pandas</p></td>
+<td class="text-left"><p>Assignment: Assignment 2 Due 9/22</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Week 3</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Intro to Data Visualization</p></td>
+<td class="text-left"><p>Assignment: Assignment 3 Due: 9/29</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week 4</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Exploratory Data Analysis</p></td>
+<td class="text-left"><p>Assignment: PROJECT I DUE 10/6</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Week 5</p></td>
+<td><p></p></td>
+<td class="text-left"><p>API’s</p></td>
+<td class="text-left"><p>Assignment: Assignment 5 DUE 10/13</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week 6</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Webscraping</p></td>
+<td class="text-left"><p>Web Scraping Assignment DUE 10/20</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Week 7</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Introduction to Flask</p></td>
+<td class="text-left"><p>API Assignment DUE: 10/27</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week 8</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Flask Forms</p></td>
+<td class="text-left"><p>PROJECT II DUE: 11/3</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Week  9</p></td>
+<td><p></p></td>
+<td class="text-left"><p>CSS and Javascript</p></td>
+<td class="text-left"><p>Forms with Flask DUE: 11/10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week  10</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Streamlit</p></td>
+<td class="text-left"><p>Personal Site Project DUE: 11/17</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Week 11</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Introduction to Machine Learning</p></td>
+<td class="text-left"><p>Regression and Classification DUE: 11/24</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week 12</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Introduction to Neural Networks</p></td>
+<td class="text-left"><p>Basic ANN for regression and classification DUE: 12/1</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Week 13</p></td>
+<td><p></p></td>
+<td class="text-left"><p>Convolutional Neural Networks</p></td>
+<td class="text-left"><p>Computer Vision Models with PyTorch DUE: 12/8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Week  14</p></td>
+<td><p></p></td>
+<td class="text-left"><p>TBD</p></td>
+<td class="text-left"><p>FINAL PROJECT DUE: 12/15</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Academic Integrity</em><br />
+Compromising your academic integrity may lead to serious consequences, including (but not limited to) one or more of the following: failure of the assignment, failure of the course, academic warning, disciplinary probation, suspension from the university, or dismissal from the university.</p>
+<p>Students are responsible for understanding the University’s policy on academic honesty and integrity and must make use of proper citations of sources for writing papers, creating, presenting, and performing their work, taking examinations, and doing research. It is the responsibility of students to learn the procedures specific to their discipline for correctly and appropriately differentiating their own work from that of others. Visit the <a class="reference external" href="http://www.newschool.edu/policies/">TNS University Policies A-Z webpage</a> for the full text of the policy.</p>
+<p>For resources regarding what plagiarism is and how to avoid it visit the <a class="reference external" href="http://www.newschool.edu/university-learning-center/student-resources/%20">TNS Learning Center website</a></p>
+<p><em>Intellectual Property Rights</em>: <a class="reference external" href="https://www.newschool.edu/provost/faculty-policies/">https://www.newschool.edu/provost/faculty-policies/</a></p>
+<p><em>Grading Policies</em>: <a class="reference external" href="http://www.newschool.edu/registrar/academic-policies/">http://www.newschool.edu/registrar/academic-policies/</a></p>
+<p>Student Code of Conduct: <a class="reference external" href="https://www.newschool.edu/student-conduct/">https://www.newschool.edu/student-conduct/</a></p>
+<p><strong>Course Policies</strong></p>
+<p>You are expected to have a computer that you can install programs on and bring with you to class.  If you work on a windows computer, you are responsible for installing a terminal application on your computer that understands UNIX – likely <a class="reference external" href="https://git-scm.com/download/win">git for windows</a>. Download and install <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>. Download and install <a class="reference external" href="https://code.visualstudio.com/">VSCode</a>.</p>
+<p>Responsibility<br />
+Students are responsible for all assignments, even if they are absent. Late papers, failure to complete the readings assigned for class discussion, and lack of preparedness for in-class discussions and presentations will jeopardize your successful completion of this course.</p>
+<p>Participation<br />
+Class participation is an essential part of class and includes: keeping up with reading, contributing meaningfully to class discussions, active participation in group work, and coming to class regularly and on time.</p>
+<p>Canvas<br />
+Use of Canvas may be an important resource for this class. Students should check it for announcements before coming to class each week.</p>
+<p>Delays<br />
+In rare instances, I may be delayed arriving to class. If I have not arrived by the time class is scheduled to start, you must wait a minimum of thirty minutes for my arrival. In the event that I will miss class entirely, a sign will be posted at the classroom indicating your assignment for the next class meeting.</p>
+<p><strong>Lang College Policies:</strong></p>
+<p><strong>Attendance</strong></p>
+<p>At Lang College, students maximize their learning with peers and faculty when all members of the class are present and engaged in the regular collective work of the course. Attendance and participation lay the foundation for thriving in the classroom, whether in seminar, lecture, lab, studio, or practice-based classes.</p>
+<p>Though there can be many justifiable reasons for absence from class, multiple absences impact the learning environment for all students and warrant some grade reduction in an environment where learning is both individual and collective.</p>
+<p>Absences will be counted from the first day a student is enrolled in the class. Thus, after three (3) absences in a class that meets twice per week, the instructor will initiate a discussion between the student, the instructor, and Student Success Advisor (SSA) to devise a plan for attending class and meeting expectations for the remainder of the semester. This discussion can take place in person, via Zoom, or via email correspondence. For classes that meet once per week, this discussion will take place after two (2) absences.</p>
+<p>For classes meeting twice per week, more than four (4) absences normally mandate withdrawal or a failing grade for the course. For classes meeting once per week, more than three (3) absences normally mandate withdrawal or a failing grade for the course. Any exception to this threshold is dependent upon the above mentioned plan of attendance with the instructor and SSA.</p>
+<p><strong>Resources</strong><br />
+The university provides many resources to help students achieve academic and artistic excellence. These resources include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://library.newschool.edu/"><strong>University Libraries</strong></a><strong>:</strong><br />
+The New School Libraries provide access to a vast array of print and electronic resources as well as personal research consultations, classroom instruction, and spaces for study and collaboration.</p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/learning-center/"><strong>University Learning Center</strong></a><strong>:</strong> For assistance with coursework during the semester, I encourage you to schedule free tutoring sessions at the University Learning Center (ULC). Individual appointments in Writing, Software, Computer Programming, Oral Presentations, Math, Time Management and ADHD Coaching are available from 7am-midnight Monday-Friday and 12-5pm on Saturdays. Online appointments are scheduled via <a class="reference external" href="https://newschool.mywconline.com/schedule.php">WCONLINE</a> and in-person sessions or last minute virtual walk-ins can be requested by emailing <a class="reference external" href="mailto:learningcenter&#37;&#52;&#48;newschool&#46;edu">learningcenter<span>&#64;</span>newschool<span>&#46;</span>edu</a>. In-person sessions are held at 66 W. 12th St. on the 6th floor. The ULC also offers weekly and biweekly sessions. For a complete list of services and general information, please visit <a class="reference external" href="http://www.newschool.edu/learning-center">www.newschool.edu/learning-center</a>.</p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/student-disability-services/"><strong>Student Disability Services</strong></a><strong>:</strong><br />
+If you are a student with a disability/disabled student, or believe you might have a disability that requires accommodations, please visit the <a class="reference external" href="https://www.newschool.edu/student-disability-services/">SDS website</a> and complete the Self ID form. Then, head to <a class="reference external" href="http://starfish.newschool.edu">Starfish</a> and find a time to meet with Nick Faranda, at a time of mutual convenience. If you have any questions or concerns, please contact Student Disability Services (SDS) at <a class="reference external" href="mailto:studentdisability&#37;&#52;&#48;newschool&#46;edu">studentdisability<span>&#64;</span>newschool<span>&#46;</span>edu</a>, or 212-229-5626.</p></li>
+<li><p><a class="reference external" href="https://archives.newschool.edu/"><strong>Archives and Special Collections</strong></a><strong>: <a class="reference external" href="https://digital.archives.newschool.edu/">Digital Archive Collections</a></strong><br />
+The New School Archives and Special Collections holds a wide array of collections in many different formats that may be useful in your academic, artistic, and personal projects, including paper and digital records, audiovisual material, artist’s books, zines, and records related to the histories of all divisions of the University. Archivists are available to help with your research and to offer guidance for locating resources specific to your topic. Contact <a class="reference external" href="mailto:archivist&#37;&#52;&#48;newschool&#46;edu">archivist<span>&#64;</span>newschool<span>&#46;</span>edu</a> to get started.</p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/student-support/food-assistance/%5C"><strong>Food Assistance</strong></a>: All current TNS students are eligible to use The New School Food Pantry. Visit this webpage for more information on the food pantry and additional resources.</p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/campus-community/health-wellness-support/"><strong>Health and Wellness</strong></a>: Visit this webpage for information about medical, counseling, and other support services available to New School students.</p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/student-advocacy/conflict-resolution/"><strong>The Student Ombuds Office</strong></a><strong>:</strong>  This office provides assistance to students in resolving conflicts, disputes, or complaints on an informal basis. This office is independent, neutral, and confidential.</p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/financial-aid/"><strong>Office of Financial Aid</strong></a>: Visit this webpage to set up a meeting with a FA counselor.<br />
+Eligible students may be considered for different types of financial aid such as scholarships, federal grants, federal work study and federal student loans. To be considered for federal student aid, you will need to complete the Free Application for Federal Student Aid (FAFSA) available online at <a class="reference external" href="https://studentaid.ed.gov/sa/fafsa">fafsa.gov</a>. The New School’s priority deadline to submit the FAFSA is February 15. The FAFSA needs to be submitted annually.</p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/1P-EFTNQgYo4hBNIgTA6xmIbdF6sTrvHY/view?pli=1"><strong>Student Bill of Rights</strong></a></p></li>
+<li><p><a class="reference external" href="https://www.newschool.edu/title-ix/"><strong>Title IX</strong></a></p></li>
+</ul>
+<p><strong>Student Course Ratings</strong><br />
+During the last two weeks of the semester, students are asked to provide feedback for each of their courses through an online survey. They cannot view grades until providing feedback or officially declining to do so. Course evaluations are a vital space where students can speak about the learning experience. It is an important process which provides valuable data about the successful delivery and support of a course or topic to both the faculty and administrators. Instructors rely on course rating surveys for feedback on the course and teaching methods, so they can understand what aspects of the class are most successful in teaching students, and what aspects might be improved or changed in future. Without this information, it can be difficult for an instructor to reflect upon and improve teaching methods and course design. In addition, program/department chairs and other administrators review course surveys. See these <a class="reference external" href="https://drive.google.com/file/d/1UyzfjvYzOkN3iF5kDbk75Ii8piEKqKLc/view">instructions</a> for completing your course evaluations online.</p>
+<div class="toctree-wrapper compound">
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="intro_terminal.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Installations and Introduction to your Terminal</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacob Frias Koehler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
