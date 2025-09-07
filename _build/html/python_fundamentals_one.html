@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,6 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_fundamentals_one';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Climb the Ladder!" href="extras/part-1-python-ladder.html" />
     <link rel="prev" title="Installations and Introduction to your Terminal" href="intro_terminal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -145,8 +146,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Data, Science, and Design - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Data, Science, and Design - Home"/>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Data, Science, and Design - Home"/>
+    <img src="_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Data, Science, and Design - Home"/>
   
   
 </a></div>
@@ -167,9 +168,17 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro_terminal.html">Installations and Introduction to your Terminal</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Python Fundamentals 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="extras/part-1-python-ladder.html">Climb the Ladder!</a></li>
+
+
+
 </ul>
 
     </div>
@@ -485,7 +494,7 @@
 </ul>
 <ul>
 <li><p><strong>Links</strong>.   We construct a link with the text in square brackets and the url in parentheses immediately afterwards.  Try this one:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Data</span> <span class="n">Bootcamp</span> <span class="n">course</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">nyu</span><span class="o">.</span><span class="n">data</span><span class="o">-</span><span class="n">bootcamp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Dad</span> <span class="n">Class</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">jfkoehler</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">dad_fa25</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -655,15 +664,6 @@ is this a 8???
 <p>We will do this alot. Here is the deal: Below are a set of excercises, take a couple of minutes and (i) create a code cell below each one and (ii) try and answer them as best as possible. If we don’t cover them all inclass, try and attempt them later as you review.</p>
 <p><strong>Exercise.</strong> Type <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">=</span> <span class="pre">7</span></code> in a cell.  In the same cell, next line below, type <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">=</span> <span class="pre">w</span> <span class="pre">+</span> <span class="pre">2</span></code>. In the next line below type <code class="docutils literal notranslate"><span class="pre">w</span></code> (so we can see the output). What does this code do?  Why is this not a violation of basic mathematics?</p>
 <p><strong>Exercise.</strong> In another code cell type <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">=</span> <span class="pre">w</span> <span class="pre">+</span> <span class="pre">2</span></code> and then <code class="docutils literal notranslate"><span class="pre">w</span></code> below it (again so we can see the output). Evaluate this cell once. Do it again. Do it again. What is going on here?</p>
-<p><strong>Exercise.</strong>  Suppose we borrow 200 for one year at an interest rate of 5 percent.  If we pay interest plus principal at the end of the year, what is our total payment?  Compute this using the variables <code class="docutils literal notranslate"><span class="pre">principal</span> <span class="pre">=</span> <span class="pre">200</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">0.05</span></code>.</p>
-<p><strong>Exercise.</strong> Real GDP in the US (the total value of things produced) was 15.58 trillion in 2013 and 15.96 trillion in 2014.  What was the growth rate?  Express it as an annual percentage.</p>
-<p><strong>Exercise (challenging).</strong>  Suppose we have two variables, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.  How would you switch their values, so that <code class="docutils literal notranslate"><span class="pre">x</span></code> takes on <code class="docutils literal notranslate"><span class="pre">y</span></code>’s value and <code class="docutils literal notranslate"><span class="pre">y</span></code> takes on <code class="docutils literal notranslate"><span class="pre">x</span></code>’s?</p>
-<p><strong>Exercise (challenging).</strong>  Type <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">6</span></code> in a cell.  We’ve reassigned <code class="docutils literal notranslate"><span class="pre">x</span></code> so that its value is now 6, not 2. If we type and submit <code class="docutils literal notranslate"><span class="pre">z</span></code>, we see</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">z</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="mf">.6666666666</span>
-</pre></div>
-</div>
-<p>But wait, if <code class="docutils literal notranslate"><span class="pre">z</span></code> is supposed to be <code class="docutils literal notranslate"><span class="pre">x/y</span></code>, and <code class="docutils literal notranslate"><span class="pre">x</span></code> now equals 6, then shouldn’t <code class="docutils literal notranslate"><span class="pre">z</span></code> be 2? What do you think is going on?</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1303,6 +1303,15 @@ How would we construct a <strong>string</strong> for the following year?</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Installations and Introduction to your Terminal</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="extras/part-1-python-ladder.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Climb the Ladder!</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

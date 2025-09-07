@@ -3,6 +3,11 @@
 
 format: jb-book
 root: syllabus
-chapters:
-- file: intro_terminal
-- file: python_fundamentals_one
+parts:
+  - caption: Getting Started
+    chapters:
+    - file: intro_terminal
+    - file: python_fundamentals_one
+  - caption: Exercises
+    chapters:
+    - file: extras/part-1-python-ladder
