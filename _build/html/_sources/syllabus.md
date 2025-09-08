@@ -32,26 +32,27 @@ By the successful completion of this course, students will be able to:
 
 **Assessable Assignments**
 
-| 1/27/2025 | Assignment I |
-| ----: | :---- |
-| 2/3/2025 | Assignment II |
-| 2/10/2025 | Assignment III |
-| 2/24/2025 | PROJECT I |
-| 3/3/2025 | Assignment IV |
-| 3/17/2025 | Assignment VI |
-| 3/24/2025 | Assignment VII |
-| 3/31/2025 | PROJECT II |
-| 4/7/2025 | Assignment IX |
-| 4/14/2025 | Assignment X |
-| 4/21/2025 | Assignment XI |
-| 4/28/2025 | Assignment XII |
-| 5/5/2025 | PROJECT III |
+| Assignments and Due Dates |
+| -----------------------   |
+|  Assignment: Assignment 1 Due: 9/15 |
+|  Assignment: Assignment 2 Due 9/22 |
+|  Assignment: Assignment 3 Due: 9/29 |
+|  Assignment: PROJECT I DUE 10/6 |
+|  Assignment: Assignment 5 DUE 10/13 |
+|  Web Scraping Assignment DUE 10/20 |
+|  API Assignment DUE: 10/27 |
+|  PROJECT II DUE: 11/3 |
+|  Forms with Flask DUE: 11/10 |
+|  Personal Site Project DUE: 11/17 |
+|  Regression and Classification DUE: 11/24 |
+|  Basic ANN for regression and classification DUE: 12/1 |
+|  Computer Vision Models with PyTorch DUE: 12/8 |
+|  FINAL PROJECT DUE: 12/15 |
 
 **Final Grade Calculation**   
 Active Participation /Attendance		30%  
 Homework				40%  
-PROJECTS				30%  
-Etc.					  
+PROJECTS				30%  					  
 TOTAL			        		100%
 
 **Readings, Materials**, **Expenses**
