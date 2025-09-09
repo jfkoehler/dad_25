@@ -8,6 +8,7 @@ parts:
     chapters:
     - file: intro_terminal
     - file: python_fundamentals_one
-  - caption: Exercises
+ 
+  - caption: Homework
     chapters:
-    - file: extras/part-1-python-ladder
+    - file: homework/homework_I
