@@ -1,0 +1,1598 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Structures and Introduction to Pandas &#8212; Data, Science, and Design</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_structures';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to pandas" href="pandas_intro.html" />
+    <link rel="prev" title="Python Fundamentals 1" href="python_fundamentals_one.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="syllabus.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Data, Science, and Design - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="Data, Science, and Design - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="syllabus.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_terminal.html">Installations and Introduction to your Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_fundamentals_one.html">Python Fundamentals 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Structures and Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas_intro.html">Introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="homework/homework_I.html">Assignment 1</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jfkoehler/dad_25/blob/main/data_structures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jfkoehler/dad_25" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jfkoehler/dad_25/issues/new?title=Issue%20on%20page%20%2Fdata_structures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data_structures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Structures and Introduction to Pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures-in-python">Data Structures in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-lists">Data and Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methods"><code class="docutils literal notranslate"><span class="pre">list</span></code> methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-methods"><code class="docutils literal notranslate"><span class="pre">tuple</span></code> methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dict-methods"><code class="docutils literal notranslate"><span class="pre">dict</span></code> methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">conditional statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-collections">Iterating over collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcomings-of-basic-data-structures">Shortcomings of basic data structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-packages">Python Packages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-as-a-data-structure"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as a data structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-methods-and-attributes"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> methods and attributes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframe-s-from-files">Creating <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s from files</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-structures-and-introduction-to-pandas">
+<h1>Data Structures and Introduction to Pandas<a class="headerlink" href="#data-structures-and-introduction-to-pandas" title="Link to this heading">#</a></h1>
+<p><strong>OBJECTIVES</strong></p>
+<ul class="simple">
+<li><p>Understand the similarities and differences of <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, and <code class="docutils literal notranslate"><span class="pre">dict</span></code> in Python.</p></li>
+<li><p>Use methods on collections</p></li>
+<li><p>Iterate over collections and control flow with conditional statements</p></li>
+<li><p>Connect data structures to <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> arrays</p></li>
+<li><p>Build a basic <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+<li><p>Read in a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+</ul>
+<section id="data-structures-in-python">
+<h2>Data Structures in Python<a class="headerlink" href="#data-structures-in-python" title="Link to this heading">#</a></h2>
+<p>A data structure can be thought of as a way to represent data in Python.  We will explore three basic forms, and then introduce external libraries <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> and <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> that simplify and extend the base libraries capabilities.</p>
+<section id="data-and-lists">
+<h3>Data and Lists<a class="headerlink" href="#data-and-lists" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p></p></th>
+<th class="head text-right"><p>some stock</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>0</p></td>
+<td class="text-right"><p>102.824</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p>202.062</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p>297.471</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p>401.106</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>503.444</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>5</p></td>
+<td class="text-right"><p>607.566</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>6</p></td>
+<td class="text-right"><p>708.208</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>809.986</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>908.093</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>1007.35</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="p">[</span><span class="mf">102.82449238</span><span class="p">,</span>  <span class="mf">202.06238561</span><span class="p">,</span>  <span class="mf">297.4710266</span> <span class="p">,</span>  <span class="mf">401.10612769</span><span class="p">,</span>
+        <span class="mf">503.44394471</span><span class="p">,</span>  <span class="mf">607.56592588</span><span class="p">,</span>  <span class="mf">708.20812766</span><span class="p">,</span>  <span class="mf">809.98616016</span><span class="p">,</span>
+        <span class="mf">908.09339539</span><span class="p">,</span> <span class="mf">1007.34582461</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#second day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#last day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#every other day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#third through sixth day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="list-methods">
+<h4><code class="docutils literal notranslate"><span class="pre">list</span></code> methods<a class="headerlink" href="#list-methods" title="Link to this heading">#</a></h4>
+<p>A method is a function unique to each “type” of object in Python.  In general, we access these methods with the syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">docs</a> for full list of methods.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#see all methods -- .tab locally; just wait a second in colab</span>
+<span class="n">stock</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">stock</span><span class="o">.</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fruits.count<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span> fruits<span class=" -Color -Color-Blue">.</span>count<span class=" -Color -Color-Blue">(</span>value<span class=" -Color -Color-Blue">,</span> <span class=" -Color -Color-Blue">/)</span>
+<span class=" -Color -Color-Red">Docstring:</span> Return number of occurrences of value.
+<span class=" -Color -Color-Red">Type:</span>      builtin_function_or_method
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using the count method</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;tangerine&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CHALLENGE</strong></p>
+<ol class="arabic simple">
+<li><p>How does the <code class="docutils literal notranslate"><span class="pre">.index()</span></code> method for a list work?  Demonstrate its use with the list <code class="docutils literal notranslate"><span class="pre">fruits</span></code>.</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>How does the <code class="docutils literal notranslate"><span class="pre">.append()</span></code> method for a list work?  Demonstrate its use by appending a new stock price that is 112% of the last price in the list.</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>What happens when you try to add two lists?  Multiply by a constant (i.e. <code class="docutils literal notranslate"><span class="pre">stocks</span> <span class="pre">*</span> <span class="pre">2</span></code>)?</p></li>
+</ol>
+</section>
+</section>
+<section id="tuple">
+<h3><code class="docutils literal notranslate"><span class="pre">tuple</span></code><a class="headerlink" href="#tuple" title="Link to this heading">#</a></h3>
+<p>Similar to lists in that they are ordered collections of mixed datatypes.  The primary difference is a <code class="docutils literal notranslate"><span class="pre">list</span></code> is mutable whereas a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> is not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mf">102.82449238</span><span class="p">,</span>  <span class="mf">202.06238561</span><span class="p">,</span>  <span class="mf">297.4710266</span> <span class="p">,</span>  <span class="mf">401.10612769</span><span class="p">,</span>
+        <span class="mf">503.44394471</span><span class="p">,</span>  <span class="mf">607.56592588</span><span class="p">,</span>  <span class="mf">708.20812766</span><span class="p">,</span>  <span class="mf">809.98616016</span><span class="p">,</span>
+        <span class="mf">908.09339539</span><span class="p">,</span> <span class="mf">1007.34582461</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">stock_tuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>102.82449238
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(202.06238561,
+ 297.4710266,
+ 401.10612769,
+ 503.44394471,
+ 607.56592588,
+ 708.20812766)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="tuple-methods">
+<h4><code class="docutils literal notranslate"><span class="pre">tuple</span></code> methods<a class="headerlink" href="#tuple-methods" title="Link to this heading">#</a></h4>
+<p>Much more limited than the <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock_tuple</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stock</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[202.06238561, 297.4710266, 401.10612769, 503.44394471]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#delete first element of list</span>
+<span class="k">del</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stock</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[297.4710266, 401.10612769, 503.44394471, 607.56592588, 708.20812766, 809.98616016, 908.09339539, 1007.34582461]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stock</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span><span class="p">(</span><span class="n">stock_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">36</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">del</span><span class="p">(</span><span class="n">stock_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object doesn&#39;t support item deletion
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dict">
+<h3><code class="docutils literal notranslate"><span class="pre">dict</span></code><a class="headerlink" href="#dict" title="Link to this heading">#</a></h3>
+<p>Dictionaries differ from lists and tuples in that they are not ordered and instead contain <code class="docutils literal notranslate"><span class="pre">key</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> pairs that are used to identify different elements of the collection.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p></p></th>
+<th class="head text-right"><p>Year</p></th>
+<th class="head text-left"><p>Country</p></th>
+<th class="head text-right"><p>Spending_USD</p></th>
+<th class="head text-right"><p>Life_Expectancy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>0</p></td>
+<td class="text-right"><p>1970</p></td>
+<td class="text-left"><p>Germany</p></td>
+<td class="text-right"><p>252.311</p></td>
+<td class="text-right"><p>70.6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p>1970</p></td>
+<td class="text-left"><p>France</p></td>
+<td class="text-right"><p>192.143</p></td>
+<td class="text-right"><p>72.2</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p>1970</p></td>
+<td class="text-left"><p>Great Britain</p></td>
+<td class="text-right"><p>123.993</p></td>
+<td class="text-right"><p>71.9</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p>1970</p></td>
+<td class="text-left"><p>Japan</p></td>
+<td class="text-right"><p>150.437</p></td>
+<td class="text-right"><p>72</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>1970</p></td>
+<td class="text-left"><p>USA</p></td>
+<td class="text-right"><p>326.961</p></td>
+<td class="text-right"><p>70.9</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">germany</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="mi">1970</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;Germany&#39;</span><span class="p">,</span> <span class="s1">&#39;Spending&#39;</span><span class="p">:</span> <span class="mf">252.311</span><span class="p">,</span> <span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">:</span> <span class="mf">70.6</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">germany</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#access the year</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#access the life expectancy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="dict-methods">
+<h4><code class="docutils literal notranslate"><span class="pre">dict</span></code> methods<a class="headerlink" href="#dict-methods" title="Link to this heading">#</a></h4>
+<p>Often, we use a dictionary to represent multiple data points for multiple columns or features of a dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">health_exp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1970</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1970</span><span class="p">,</span> <span class="mi">1970</span><span class="p">],</span>
+ <span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Germany&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">,</span><span class="s1">&#39;Great Britain&#39;</span><span class="p">,</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span><span class="s1">&#39;USA&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;Spending_USD&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">252.311</span><span class="p">,</span><span class="mf">192.143</span><span class="p">,</span><span class="mf">123.993</span><span class="p">,</span><span class="mf">150.437</span><span class="p">,</span><span class="mf">326.961</span><span class="p">],</span>
+ <span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">70.6</span><span class="p">,</span><span class="mf">72.2</span><span class="p">,</span><span class="mf">71.9</span><span class="p">,</span><span class="mf">72.0</span><span class="p">,</span><span class="mf">70.9</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using get to access values</span>
+<span class="n">health_exp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1970, 1970, 1970, 1970, 1970]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print the key/value pairs</span>
+<span class="n">health_exp</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_items([(&#39;Year&#39;, [1970, 1970, 1970, 1970, 1970]), (&#39;Country&#39;, [&#39;Germany&#39;, &#39;France&#39;, &#39;Great Britain&#39;, &#39;Japan&#39;, &#39;USA&#39;]), (&#39;Spending_USD&#39;, [252.311, 192.143, 123.993, 150.437, 326.961]), (&#39;Life_Expectancy&#39;, [70.6, 72.2, 71.9, 72.0, 70.9])])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#the keys only</span>
+<span class="n">health_exp</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Year&#39;, &#39;Country&#39;, &#39;Spending_USD&#39;, &#39;Life_Expectancy&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>QUESTION</strong></p>
+<p>What are some questions you might ask about this dataset?  How would you find the mean spending and life expectancy?</p>
+</section>
+</section>
+<section id="conditional-statements">
+<h3>conditional statements<a class="headerlink" href="#conditional-statements" title="Link to this heading">#</a></h3>
+<p>These are built in comparison methods for both numeric and string datatypes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#less than?</span>
+<span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#greater than or equal to?</span>
+<span class="mi">5</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_life_exp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The mean life expectancy is </span><span class="si">{</span><span class="n">mean_life_exp</span><span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1"> years&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean life expectancy is  71.52 years
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#suppose we want to compare the individual datapoints to the mean</span>
+<span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[70.6, 72.2, 71.9, 72.0, 70.9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#which countries life expectancy is less than average</span>
+<span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_life_exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">70</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#which countries life expectancy is less than average</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_life_exp</span>
+
+<span class="ne">TypeError</span>: &#39;&lt;&#39; not supported between instances of &#39;list&#39; and &#39;float&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#alternatively we can take each at a time</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_life_exp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_life_exp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mean_life_exp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iterating-over-collections">
+<h3>Iterating over collections<a class="headerlink" href="#iterating-over-collections" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop allows you to automate stepping through items in any collection.  In general it works as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="c1">#or whatever operation you want to perform on each</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">country_life_exp</span> <span class="ow">in</span> <span class="n">health_exp</span><span class="p">[</span><span class="s1">&#39;Life_Expectancy&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">country_life_exp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>70.6
+72.2
+71.9
+72.0
+70.9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#what if you iterate over a dictionary?</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">health_exp</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year
+Country
+Spending_USD
+Life_Expectancy
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CHALLENGE</strong></p>
+<p>Adjust the loop above to print the values of the dictionary <code class="docutils literal notranslate"><span class="pre">health_exp</span></code> instead of the keys.</p>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<p>Functions can be thought of as our frequent high school mathematics description – an object that takes an input, performs on operation on the input, and return the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#defining a function</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using the function</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CHALLENGE</strong></p>
+<p>What does the function below do?  Can you use it on the <code class="docutils literal notranslate"><span class="pre">health_exp</span></code> dataset?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">averager</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function takes in a list and returns</span>
+<span class="sd">    the arithmetic mean of the quantities.</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Keyword arguments:</span>
+<span class="sd">    list_of_numbers: list (List of values to average)</span>
+<span class="sd">    --------</span>
+<span class="sd">    returns:</span>
+<span class="sd">    average: float (mean of list)</span>
+<span class="sd">    --------</span>
+<span class="sd">    Example:</span>
+<span class="sd">    x = [1, 2, 3, 4, 5]</span>
+<span class="sd">    averager(x) --&gt; 3.0</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shortcomings-of-basic-data-structures">
+<h3>Shortcomings of basic data structures<a class="headerlink" href="#shortcomings-of-basic-data-structures" title="Link to this heading">#</a></h3>
+<p>Should finding the average of a dataset take so much effort?  Suppose you wanted to find the standard deviation of a column, wouldn’t it be nice if we had a data structure that had all this built in for us?</p>
+<section id="python-packages">
+<h4>Python Packages<a class="headerlink" href="#python-packages" title="Link to this heading">#</a></h4>
+<blockquote>
+<div><p>As a general-purpose programming language, Python is designed to be used in many ways. You can build web sites or industrial robots or a game for your friends to play, and much more, all using the same core technology.</p>
+<p>Python’s flexibility is why the first step in every Python project must be to think about the project’s audience and the corresponding environment where the project will run. It might seem strange to think about packaging before writing code, but this process does wonders for avoiding future headaches. – <a class="reference external" href="https://packaging.python.org/en/latest/overview/">source</a></p>
+</div></blockquote>
+<p>Typically, you will install a package and consult its documentation for how to use the package.  When we downloaded Anaconda it came loaded with many of the important libraries for data oriented tasks.</p>
+</section>
+</section>
+<section id="pandas">
+<h3><code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#pandas" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library will be our workhorse for a data structure.  It is already installed in both Anaconda and Google Colab notebooks.  Before we can use the library, we first import it and alias it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The documentation for <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is excellent, and found <a class="reference external" href="https://pandas.pydata.org/">here</a></p></li>
+<li><p>They offer a basic cheat sheet that can be a quick reference as you learn <a class="reference external" href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">here</a></p></li>
+<li><p>In the documentation there are getting started tutorials that could be helpful to explore <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html">here</a></p></li>
+</ul>
+<section id="dataframe-as-a-data-structure">
+<h4><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as a data structure<a class="headerlink" href="#dataframe-as-a-data-structure" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#creating a DataFrame from a dictionary</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">health_exp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#what kind of thing is this?</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a look at the DataFrame</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Country</th>
+      <th>Spending_USD</th>
+      <th>Life_Expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1970</td>
+      <td>Germany</td>
+      <td>252.311</td>
+      <td>70.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1970</td>
+      <td>France</td>
+      <td>192.143</td>
+      <td>72.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1970</td>
+      <td>Great Britain</td>
+      <td>123.993</td>
+      <td>71.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1970</td>
+      <td>Japan</td>
+      <td>150.437</td>
+      <td>72.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1970</td>
+      <td>USA</td>
+      <td>326.961</td>
+      <td>70.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="dataframe-methods-and-attributes">
+<h4><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> methods and attributes<a class="headerlink" href="#dataframe-methods-and-attributes" title="Link to this heading">#</a></h4>
+<p>Just like the base library data structures, the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> has its own methods and attributes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#DataFrame methods and properties</span>
+<span class="n">df</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">84</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">df</span><span class="o">.</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#finding the mean of all numeric columns</span>
+<span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year               1970.000
+Spending_USD        209.169
+Life_Expectancy      71.520
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CHALLENGE</strong></p>
+<ol class="arabic simple">
+<li><p>Determine the standard deviation of the numeric columns?</p></li>
+</ol>
+</section>
+</section>
+<section id="creating-dataframe-s-from-files">
+<h3>Creating <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s from files<a class="headerlink" href="#creating-dataframe-s-from-files" title="Link to this heading">#</a></h3>
+<p>The pandas function <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> allows us to read in an external <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file and create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create a csv file</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;health_exp.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read the csv file back in as a new object</span>
+<span class="n">health_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;health_exp.csv&#39;</span><span class="p">)</span>
+<span class="n">health_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Year</th>
+      <th>Country</th>
+      <th>Spending_USD</th>
+      <th>Life_Expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1970</td>
+      <td>Germany</td>
+      <td>252.311</td>
+      <td>70.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1970</td>
+      <td>France</td>
+      <td>192.143</td>
+      <td>72.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1970</td>
+      <td>Great Britain</td>
+      <td>123.993</td>
+      <td>71.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1970</td>
+      <td>Japan</td>
+      <td>150.437</td>
+      <td>72.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1970</td>
+      <td>USA</td>
+      <td>326.961</td>
+      <td>70.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#the index was included as a column in the csv file</span>
+<span class="c1">#we can specify this column as the index instead of creating</span>
+<span class="c1">#a new index column</span>
+<span class="n">health_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;health_exp.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">health_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Country</th>
+      <th>Spending_USD</th>
+      <th>Life_Expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1970</td>
+      <td>Germany</td>
+      <td>252.311</td>
+      <td>70.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1970</td>
+      <td>France</td>
+      <td>192.143</td>
+      <td>72.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1970</td>
+      <td>Great Britain</td>
+      <td>123.993</td>
+      <td>71.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1970</td>
+      <td>Japan</td>
+      <td>150.437</td>
+      <td>72.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1970</td>
+      <td>USA</td>
+      <td>326.961</td>
+      <td>70.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>CHALLENGE</strong></p>
+<ol class="arabic simple">
+<li><p>Find a dataset in <code class="docutils literal notranslate"><span class="pre">.csv</span></code> format with a quick google search.  Download the file and read it in as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Show your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to your neighbor and rejoice.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="python_fundamentals_one.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python Fundamentals 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pandas_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures-in-python">Data Structures in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-lists">Data and Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methods"><code class="docutils literal notranslate"><span class="pre">list</span></code> methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple-methods"><code class="docutils literal notranslate"><span class="pre">tuple</span></code> methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dict"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dict-methods"><code class="docutils literal notranslate"><span class="pre">dict</span></code> methods</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">conditional statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-collections">Iterating over collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shortcomings-of-basic-data-structures">Shortcomings of basic data structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-packages">Python Packages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas"><code class="docutils literal notranslate"><span class="pre">pandas</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-as-a-data-structure"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as a data structure</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-methods-and-attributes"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> methods and attributes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframe-s-from-files">Creating <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s from files</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacob Frias Koehler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
