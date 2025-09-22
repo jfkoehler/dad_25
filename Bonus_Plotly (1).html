@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installations and Introduction to your Terminal &#8212; Data, Science, and Design</title>
+    <title>plotly &#8212; Data, Science, and Design</title>
   
   
   
@@ -60,11 +60,9 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro_terminal';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Bonus_Plotly (1)';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python Fundamentals 1" href="python_fundamentals_one.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -115,6 +113,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -169,8 +169,8 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installations and Introduction to your Terminal</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_terminal.html">Installations and Introduction to your Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_fundamentals_one.html">Python Fundamentals 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures and Introduction to Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas_intro.html">Introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
@@ -238,7 +238,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jfkoehler/dad_25/blob/main/intro_terminal.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jfkoehler/dad_25/blob/main/Bonus_Plotly (1).ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@
       
       
       
-      <li><a href="https://github.com/jfkoehler/dad_25/issues/new?title=Issue%20on%20page%20%2Fintro_terminal.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jfkoehler/dad_25/issues/new?title=Issue%20on%20page%20%2FBonus_Plotly (1).html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +316,7 @@
       
       
       
-      <li><a href="_sources/intro_terminal.ipynb" target="_blank"
+      <li><a href="_sources/Bonus_Plotly (1).ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,9 +379,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -392,27 +390,11 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installations and Introduction to your Terminal</h1>
+    <h1>plotly</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-your-file-system">Navigating your file system</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-filesystem">Basic Filesystem</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">Using the Terminal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-files">Navigating Files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge">Challenge</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -422,104 +404,19 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="installations-and-introduction-to-your-terminal">
-<h1>Installations and Introduction to your Terminal<a class="headerlink" href="#installations-and-introduction-to-your-terminal" title="Link to this heading">#</a></h1>
-<p><strong>OBJECTIVES</strong></p>
-<ul class="simple">
-<li><p>Navigate files and directories using your terminal</p></li>
-<li><p>Create, alter, and delete files using your terminal</p></li>
-<li><p>Display basic information about files using bash commands</p></li>
-<li><p>Use loops to execute programs from the terminal and store output</p></li>
-</ul>
-<p><img alt="" src="_images/Gnu-bash-logo.png" /></p>
-<p><strong>REQUIREMENTS</strong></p>
-<ul class="simple">
-<li><p>Jupyter notebooks and Jupyter Lab for use locally: <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a></p></li>
-<li><p>VS Code Text Editor: <a class="reference external" href="https://code.visualstudio.com/download">VSCode</a></p></li>
-<li><p>Terminal application with <code class="docutils literal notranslate"><span class="pre">git</span></code> installed.  For windows users, the easiest approach is to download and install <strong><a class="reference external" href="https://gitforwindows.org/">git for windows</a></strong>.</p></li>
-</ul>
-<section id="navigating-your-file-system">
-<h2>Navigating your file system<a class="headerlink" href="#navigating-your-file-system" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Download and unzip the data for this lesson here: <a class="reference external" href="https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip">shell-lesson-data</a></p></li>
-<li><p>Create a new directory on your desktop named <code class="docutils literal notranslate"><span class="pre">shell-lesson-data</span></code>.</p></li>
-</ul>
-<section id="basic-filesystem">
-<h3>Basic Filesystem<a class="headerlink" href="#basic-filesystem" title="Link to this heading">#</a></h3>
-<p>The filesystem looks like an upside down tree. The topmost directory is the root directory that holds everything else. We refer to it using a slash character, <code class="docutils literal notranslate"><span class="pre">/</span></code>, on its own; this character is the leading slash in <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>.</p>
-<p><img alt="" src="_images/filesystem.png" /></p>
-<p>The user imhotep’s files are stored in <code class="docutils literal notranslate"><span class="pre">/Users/imhotep</span></code>, user larry’s in <code class="docutils literal notranslate"><span class="pre">/Users/larry</span></code>, and Nelle’s in <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>. Nelle is the user in our examples here; therefore, we get <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code> as our home directory. Typically, when you open a new command prompt, you will be in your home directory to start.</p>
-<p><img alt="" src="_images/home-directories.png" /></p>
-</section>
-</section>
-<section id="using-the-terminal">
-<h2>Using the Terminal<a class="headerlink" href="#using-the-terminal" title="Link to this heading">#</a></h2>
-<p>In this exercise, our focus will be on using the terminal to navigate files and directories as well as to create and destroy files and directories.</p>
-<p><img alt="" src="_images/terminal.png" /></p>
-<section id="navigating-files">
-<h3>Navigating Files<a class="headerlink" href="#navigating-files" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> to see where you currently are located</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span></code> to see the files and folders available</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code> to differentiate between files and folders</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">cd</span></code> to change directory</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> to make a new directory</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">touch</span></code> to create a new <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">rm</span></code> <strong>VERY CAREFULLY</strong> to delete the file</p></li>
-</ul>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">rm</span></code> <strong>VERY CAREFULLY</strong> to examine the contents of a directory and delete one by one</p></li>
-</ul>
-</section>
-<section id="challenge">
-<h3>Challenge<a class="headerlink" href="#challenge" title="Link to this heading">#</a></h3>
-<p>Starting from <code class="docutils literal notranslate"><span class="pre">/Users/nelle/data</span></code>, which of the following commands could Nelle use to navigate to her home directory, which is <code class="docutils literal notranslate"><span class="pre">/Users/nelle</span></code>?</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">.</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/nelle</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../..</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">home</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/data/..</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></li>
-</ul>
-<ol class="arabic simple" start="2">
-<li><p>Using the filesystem diagram below, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/thing</span></code>, what will <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span> <span class="pre">../backup</span></code> display?</p></li>
-</ol>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">../backup:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2012-12-01</span> <span class="pre">2013-01-08</span> <span class="pre">2013-01-27</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2012-12-01/</span> <span class="pre">2013-01-08/</span> <span class="pre">2013-01-27/</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">original/</span> <span class="pre">pnas_final/</span> <span class="pre">pnas_sub/</span></code></p></li>
-</ul>
-<p><img alt="" src="_images/filesystem-challenge.png" /></p>
-<ol class="arabic simple" start="3">
-<li><p>Using the filesystem diagram above, if <code class="docutils literal notranslate"><span class="pre">pwd</span></code> displays <code class="docutils literal notranslate"><span class="pre">/Users/backup</span></code>, and <code class="docutils literal notranslate"><span class="pre">-r</span></code> tells ls to display things in reverse order, what command(s) will result in the following output:</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pnas_sub</span><span class="o">/</span> <span class="n">pnas_final</span><span class="o">/</span> <span class="n">original</span><span class="o">/</span>
+  <section id="plotly">
+<h1><code class="docutils literal notranslate"><span class="pre">plotly</span></code><a class="headerlink" href="#plotly" title="Link to this heading">#</a></h1>
+<p>A high level library for plotting that includes interactive elements like hovering and paning. For this assignment, please explore the documentation for <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code> and redo some of our examples using <code class="docutils literal notranslate"><span class="pre">plotly</span></code> or <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code>.  For reference, see the documentation <a class="reference external" href="https://plotly.com/python/plotly-express/">here</a>. Add markdown cells as needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">pwd</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-r</span> <span class="pre">-F</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-r</span> <span class="pre">-F</span> <span class="pre">/Users/backup</span></code></p></li>
-</ul>
-</section>
-</section>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -552,54 +449,12 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="syllabus.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="python_fundamentals_one.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python Fundamentals 1</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-your-file-system">Navigating your file system</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-filesystem">Basic Filesystem</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">Using the Terminal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigating-files">Navigating Files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge">Challenge</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
