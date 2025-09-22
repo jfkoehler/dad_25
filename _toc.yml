@@ -10,6 +10,7 @@ parts:
     - file: python_fundamentals_one
     - file: data_structures
     - file: pandas_intro
+    - file: intro_to_plotting
  
   - caption: Homework
     chapters:
