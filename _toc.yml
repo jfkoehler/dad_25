@@ -15,3 +15,4 @@ parts:
   - caption: Homework
     chapters:
     - file: homework/homework_I
+    - file: homework/homework_II

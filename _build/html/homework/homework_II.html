@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Homework 2: Pandas and Introductory Plotting &#8212; Data, Science, and Design</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/homework_II';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Assignment 1" href="homework_I.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../syllabus.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Data, Science, and Design - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Data, Science, and Design - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro_terminal.html">Installations and Introduction to your Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_fundamentals_one.html">Python Fundamentals 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_structures.html">Data Structures and Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas_intro.html">Introduction to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro_to_plotting.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> intro</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="homework_I.html">Assignment 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 2: Pandas and Introductory Plotting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jfkoehler/dad_25/blob/main/homework/homework_II.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jfkoehler/dad_25" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jfkoehler/dad_25/issues/new?title=Issue%20on%20page%20%2Fhomework/homework_II.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/homework/homework_II.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework 2: Pandas and Introductory Plotting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="homework-2-pandas-and-introductory-plotting">
+<h1>Homework 2: Pandas and Introductory Plotting<a class="headerlink" href="#homework-2-pandas-and-introductory-plotting" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem 1</strong>: Loading a data file.</p>
+<p>Below, load in the data from the <code class="docutils literal notranslate"><span class="pre">spotify.csv</span></code> file.  Assign it to a variable <code class="docutils literal notranslate"><span class="pre">spotify</span></code> below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spotify_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jfkoehler/nyu_bootcamp_fa25/refs/heads/main/data/spotify.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem 2</strong>: Who is the most frequently occurring artist in the data?</p>
+<p><strong>Problem 3</strong>: Using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> create a histogram for the <code class="docutils literal notranslate"><span class="pre">tempo</span></code> column.</p>
+<p><strong>Problem 4</strong>: Using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> create a scatterplot of <code class="docutils literal notranslate"><span class="pre">tempo</span></code> vs. <code class="docutils literal notranslate"><span class="pre">danceability</span></code>.  Do these features seem related?</p>
+<p><strong>Problem 5</strong>: Load in the <code class="docutils literal notranslate"><span class="pre">cell_phone_churn.csv</span></code> data and assign as <code class="docutils literal notranslate"><span class="pre">churn</span></code> below.</p>
+<p>This dataset contains customer information from a telecommunications company about customer churn.  A customer is <em>churned</em> if they leave the provider.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">churn_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jfkoehler/nyu_bootcamp_fa25/refs/heads/main/data/cell_phone_churn.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem 6</strong>: What percentage of customers were churned?</p>
+<p><strong>Problem 7</strong>: How do customers who have a voicemail plan and those who did not compare in terms of percent churned?</p>
+<p><strong>Problem 8</strong>: Using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draw a barplot to represent the number of customers by the number of customer service calls these customers made.</p>
+<p><strong>Problem 9</strong>: Using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> draw boxplots for international minutes by customers who were churned and those that were not.  Are there any differences between these groups?</p>
+<p><strong>Problem 10</strong>: Load in the <code class="docutils literal notranslate"><span class="pre">gapminder_all.csv</span></code> file and assign as <code class="docutils literal notranslate"><span class="pre">gapminder_df</span></code> below.  This data comes from the Gapminder organization and contains information on countries GDP and Life Expectancy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gapminder_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/jfkoehler/nyu_bootcamp_fa25/refs/heads/main/data/gapminder_all.csv&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem 11</strong>: What is the average GDP in 2007 for each continent?</p>
+<p><strong>Problem 12</strong>: Use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to create a scatter plot for GDP vs. Life Expectancy for the data in 2007.  Include a title and x and y labels. Adjust the size of the points using the population feature and color the points based on the continent.</p>
+<p><strong>Problem 13</strong>: Read through Wilke’s chapter on <em>Visualizing Trends</em> <a class="reference external" href="https://clauswilke.com/dataviz/visualizing-trends.html">here</a>.  Explore the <code class="docutils literal notranslate"><span class="pre">.rolling</span></code> method of a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> and use it to produce a “smoothed” version of a time series plot.  Draw two plots using the subplots function from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and display one plot with the original series and the second of the “smoothed” series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dow</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;dowjones&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dow</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/df15baf0417644283fb492006b349d929628c39d4ed12edfa108ac9129bb7d2b.png" src="../_images/df15baf0417644283fb492006b349d929628c39d4ed12edfa108ac9129bb7d2b.png" />
+</div>
+</div>
+<p><strong>PROBLEM 14</strong> Read through Wilke’s chapter <em>A Directory of Visualizations</em> <a class="reference external" href="https://clauswilke.com/dataviz/directory-of-visualizations.html">here</a>.  Identify a plot that you haven’t built yet and use seaborn to demonstrate its implementation and explain its interpretation.  Use one of the built in seaborn datasets to construct your visualization.</p>
+<p><strong>BONUSes</strong></p>
+<p>Feel free to complete any one, two, or all of these problems.  If the above problems took you a long time please don’t drive yourself crazy trying to do anything. These problems are not simple, and you should write clear, commented code that is not the result of an LLM.  Use the documentation, run code, read error messages, take a walk, ask questions in office hours. This should be kind of fun…</p>
+<p>Head over to the documentation for <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/">here</a>.  Use the library to build an interactive visualization of a time series dataset that uses a slider to control a smoothing window.  Add a title “dataset name rolling mean for {size of window} time steps”.</p>
+<p>Checkout the notebook introducing the <code class="docutils literal notranslate"><span class="pre">bokeh</span></code> plotting library <a class="reference external" href="https://github.com/jfkoehler/nyu_bootcamp_fa25/blob/main/Plotting_with_bokeh.ipynb">here</a>.  Also, consult the documentation <a class="reference external" href="https://bokeh.org/">here</a>.  Use the library to build an interactive visualization of a dataset of your choosing.  Do this in a separate notebook and use markdown cells to build a brief tutorial on how to build your selected visualization.  To get credit for this problem you should submit a link to a standalone colab notebook visible to “anyone with the link” <a class="reference external" href="https://forms.gle/XY335jm4BLzVrRGX9">here</a> along with a one paragraph summary of the visualization that will be shared with the class through our github repository and book. Be prepared to discuss your visualization and bokeh functionality that was crucial to its construction in 30 - 60 seconds.</p>
+<p>Read over the <em>Code Magazine</em> article <em>Building dashboards with Python</em> <a class="reference external" href="https://www.codemag.com/Article/2111061/Building-Dashboards-Using-Bokeh">here</a>.  Focus on using the <code class="docutils literal notranslate"><span class="pre">bokeh</span> <span class="pre">serve</span> <span class="pre">--show</span></code> function to launch a bokeh plot code file containing a basic or complex bokeh dashboard with a data table and interactive plot.  Make sure your code is well commented, write a one paragraph description of your work and submit that <a class="reference external" href="https://forms.gle/XY335jm4BLzVrRGX9">here</a> along with the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file of your plot. Be prepared to discuss your visualization and bokeh functionality that was crucial to its construction in 30 - 60 seconds.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./homework"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="homework_I.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment 1</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacob Frias Koehler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
